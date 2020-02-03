@@ -1,8 +1,3 @@
-# OLD Dockerfile
-#FROM nginx
-#COPY index.html /usr/share/nginx/html
-#COPY static/ /usr/share/nginx/html/static/
-
 # Use Torsten Walter's Dockerfile
 FROM nginx:mainline
 
@@ -19,6 +14,10 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 RUN addgroup nginx root
 USER nginx
+
+# for debugging network issues
+RUN apt-get install iputils-ping
+RUN apt-get install iputils-tracepath
 
 COPY index.html /usr/share/nginx/html
 COPY static/ /usr/share/nginx/html/static/
