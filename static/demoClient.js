@@ -532,7 +532,7 @@ var eventBus = new Vue();
   })
 
 // Socket.io set the path to the server
-  var socket = io('http://moapp:8000', {forceNew: true});
+  var socket = io('http://172.30.33.62:8000', {forceNew: true});
 
 //creation of room objects that will be replaced once rooms array has been broadcasted from server
   const rooms = [{
